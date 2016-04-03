@@ -20,14 +20,19 @@
         },
         getDefaultProps: function(){
           return {
-            brand: 'React Practice Site'
+            brand: 'React Practice Site',
+            color: 'light'
           }
         },
-
         render: function(){
+            if(this.props.color == 'dark'){
+                var navClass = 'navbar navbar-inverse';
+            } else {
+                var navClass = 'navbar navbar-default';
+            }
             return(
               <div>
-                  <nav className="navbar navbar-default">
+                  <nav className={navClass}>
                   <div className="container-fluid">
 
                     <div className="navbar-header">
@@ -98,13 +103,19 @@
 
     //footer component
     var Footer = React.createClass({
+      getDefaultProps: function(){
+          return {
+            website: 'Fink Inc.',
+            copy_year: 2016
+          }
+      },
       render: function(){
         return(
           <div className="container">
             <hr />
 
             <footer>
-              <p>&copy; 2016 Fink Inc.</p>
+              <p>&copy; {this.props.copy_year} {this.props.website}</p>
             </footer>
           </div>
         )
@@ -116,7 +127,7 @@
         render: function(){
           return(
             <div>
-              <Navbar />
+              <Navbar color="dark"/>
               <Jumbotron />
               <Homepage />
               <Footer />

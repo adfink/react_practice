@@ -56,14 +56,26 @@
 
     //Jumbotron component
     var Jumbotron = React.createClass({
+        PropTypes: {
+          heading: React.PropTypes.string,
+          text: React.PropTypes.string,
+          link: React.PropTypes.string
+        },
+      getDefaultProps: function(){
+          return {
+              heading: 'Welcome welcome welcome weary cypber space traveler',
+              text: 'This site is built using React components',
+              link: 'http:///google.com'
+          }
+      },
       render: function(){
         return(
           <div>
             <div className="jumbotron">
               <div className="container">
-                <h1>Hello, world that is connected to the internet!</h1>
-                <p>This is an attempt at using React to do my bidding...we will see how it goes</p>
-                <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                <h1>{this.props.heading}</h1>
+                <p>{this.props.text}</p>
+                <p><a className="btn btn-primary btn-lg" href={this.props.link} role="button">Click here to achieve total consciousnes &raquo;</a></p>
               </div>
             </div>
           </div>

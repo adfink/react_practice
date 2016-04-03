@@ -15,6 +15,15 @@
   <script type="text/babel">
     //navbar component
     var Navbar = React.createClass({
+        propTypes: {
+            brand: React.PropTypes.string.isRequired
+        },
+        getDefaultProps: function(){
+          return {
+            brand: 'React Practice Site'
+          }
+        },
+
         render: function(){
             return(
               <div>
@@ -28,7 +37,7 @@
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                       </button>
-                      <a className="navbar-brand" href="#">React Practice Site</a>
+                      <a className="navbar-brand" href="#">{this.props.brand}</a>
                     </div>
 
 
